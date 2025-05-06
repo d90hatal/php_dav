@@ -1,16 +1,16 @@
 <?php
 
 require "functions.php";
-$heading ="home" ;
 
-function dd($value) {
-    echo "<pre>";
-    var_dump($value);
-    echo "</pre>";
+$uri = $_SERVER["REQUEST_URI"];
 
-    die();
+
+if ($uri === "/php-sandbox/php_dav/") {
+    require "./controlers/index.php";
+} else if ($uri === "/php-sandbox/php_dav/about") {
+    require "./controlers/about.php";
+} else if ($uri === "/php-sandbox/php_dav/contact") {
+    require "./controlers/contact.php";
+} else {
+    echo "Page not found: " . $_SERVER["REQUEST_URI"];
 }
-
-
-
-require "views/index.view.php";

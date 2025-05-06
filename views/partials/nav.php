@@ -8,9 +8,9 @@
                         <div class="hidden md:block">
                             <div class="ml-10 flex items-baseline space-x-4">
                                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                                <a href="index.php" class="<?= isCurrent("/") ? "bg-gray-900 text-white" : "text-gray-300 "  ?>  hover:bg-gray-700 hover:text-white">home</a>
-                                <a href="about.php" class="<?= isCurrent("/") ? "bg-gray-900 text-white" : "text-gray-300 "  ?>  hover:bg-gray-700 hover:text-white">about</a>
-                                <a href="contact.php" class="<?= isCurrent("/") ? "bg-gray-900 text-white" : "text-gray-300 "  ?>  hover:bg-gray-700 hover:text-white">contact</a>
+                                <a href="/php-sandbox/php_dav/" class="<?= urlIs('/php-sandbox/php_dav/') ? 'bg-gray-900 text-white' : 'text-gray-300' ?>  hover:bg-gray-700 hover:text-white">home</a>
+                                <a href="/php-sandbox/php_dav/about" class="<?= urlIs('/php-sandbox/php_dav/about') ? 'bg-gray-900 text-white' : 'text-gray-300' ?>  hover:bg-gray-700 hover:text-white">about</a>
+                                <a href="/php-sandbox/php_dav/contact" class="<?= urlIs('/php-sandbox/php_dav/contact') ? 'bg-gray-900 text-white' : 'text-gray-300' ?>  hover:bg-gray-700 hover:text-white">contact</a>
 
                             </div>
                         </div>
