@@ -2,15 +2,25 @@
 
 require "functions.php";
 
-$uri = $_SERVER["REQUEST_URI"];
+// require "router.php";
+
+//connect to mysql database.
+
+$dsn = "mysql:host=localhost;port=3306;dbname=php_db;user=root;charset=utf8mb4";
+
+$pdo = new PDO($dsn);
+
+$statement = $pdo->prepare("SELECT title FROM untitled_table_1");
+
+$statement->execute();
+
+$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+dd($posts);
 
 
-if ($uri === "/php-sandbox/php_dav/") {
-    require "./controlers/index.php";
-} else if ($uri === "/php-sandbox/php_dav/about") {
-    require "./controlers/about.php";
-} else if ($uri === "/php-sandbox/php_dav/contact") {
-    require "./controlers/contact.php";
-} else {
-    echo "Page not found: " . $_SERVER["REQUEST_URI"];
-}
+
+
+
+
+
