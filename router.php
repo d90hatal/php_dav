@@ -1,18 +1,8 @@
 <?php
 
-$uri = parse_url($_SERVER["REQUEST_URI"])["path"];
+$routes = require "routes.php";
 
 
-
-
-$routes = [
-    "/php-sandbox/php_dav/" => "./controlers/index.php",
-    "/php-sandbox/php_dav/about" => "./controlers/about.php",
-    "/php-sandbox/php_dav/notes" => "./controlers/notes.php",
-    "/php-sandbox/php_dav/note" => "./controlers/note.php",
-    "/php-sandbox/php_dav/contact" => "./controlers/contact.php",
-
-];
 
 
 function routeToController($uri, $routes)
@@ -29,5 +19,6 @@ function abort($code = 404)
 {
     require "./views/{$code}.php";
 }
+$uri = parse_url($_SERVER["REQUEST_URI"])["path"];
 
 routeToController($uri, $routes);
