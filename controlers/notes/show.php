@@ -1,12 +1,10 @@
 <?php
 
-require "response.php";
 
-$config = require "config.php";
+$config = require base_path("config.php");
 
 $db = new Database($config['database']);
 
-$heading = "note";
 
 $currentUserId = 1;
 
@@ -20,4 +18,7 @@ authorize($note['user_id'] === $currentUserId);
 
 
 
-require "views/note.view.php";
+view("notes/show.view.php", [
+    "heading" => "note",
+    "note" => $note
+]);

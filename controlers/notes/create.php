@@ -1,22 +1,15 @@
 <?php
 
 
-require 'Validator.php';
 
-$config = require 'config.php';
+$config = require base_path("config.php");
 $db = new Database($config['database']);
 
-$heading = "Create Note";
 
-// $errors = ['body' => ''];
+$errors = [];
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $errors = [];
-
-
-
-    // $validator = new Validator();
 
     if (! Validator::string($_POST['body'], 1, 15)) {
         $errors['body'] = 'Note must be contain a character and less than 15 characters';
@@ -34,4 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 
-require "views/note-create.view.php";
+view("notes/create.view.php", [
+    "heading" => "Create Note",
+    "errors" => $errors
+]);
